@@ -13,6 +13,6 @@ class User(AbstractUser):
     return self.username
   
 
-
-
-
+class Item(models.Model):
+  name = models.CharField(max_length=100)
+  owner = models.ForeignKey(User, on_delete=models.CASCADE)

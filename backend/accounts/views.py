@@ -6,7 +6,8 @@ from rest_framework_simplejwt.tokens import RefreshToken
 from django.contrib.auth import authenticate
 from django.contrib.auth import get_user_model
 
-from .serializers import RegisterSerializer
+from .models import Item
+from .serializers import RegisterSerializer, ItemSerializer
 
 
 User = get_user_model()
@@ -58,3 +59,15 @@ class RefreshView(APIView):
       'access': str(refresh.access_token)
     })
   
+
+
+class ItemListCreateView(APIView):
+  permission_classes = [permissions.IsAuthenticated]
+
+  def get(self, request):
+    items = Item.objects.filter(owner=request.user)
+    serializer = ItemSerializer(items, many=True)
+    return Response(serializer.data)
+  
+
+
