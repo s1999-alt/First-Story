@@ -60,7 +60,6 @@ class RefreshView(APIView):
     })
   
 
-
 class ItemListCreateView(APIView):
   permission_classes = [permissions.IsAuthenticated]
 
@@ -68,6 +67,14 @@ class ItemListCreateView(APIView):
     items = Item.objects.filter(owner=request.user)
     serializer = ItemSerializer(items, many=True)
     return Response(serializer.data)
+  
+  def post(self, request):
+    serializer = ItemSerializer(data=request.data)
+    if serializer.is_valid():
+      serializer.save()
+      return Response({"message": "Item Created", "data": serializer.data}, status=status.HTTP_201_CREATED)
+    return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    
   
 
 
