@@ -25,8 +25,4 @@ class RegisterSerializer(serializers.ModelSerializer):
     return user
   
 
-class ItemSerializer(serializers.ModelSerializer):
-  class Meta:
-    model = Item
-    fields = '__all__'
 

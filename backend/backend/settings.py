@@ -25,6 +25,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework_simplejwt.token_blacklist',
+    'debug_toolbar',
     'rest_framework',
     'corsheaders',
     'accounts',
@@ -39,6 +41,11 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
+]
+
+INTERNAL_IPS = [
+  '127.0.0.1',
 ]
 
 ROOT_URLCONF = 'backend.urls'
@@ -125,6 +132,7 @@ SIMPLE_JWT = {
   'REFRESH_TOKEN_LIFETIME': timedelta(days=1),
   'ROTATE_REFRESH_TOKENS': True,
   'AUTH_HEADER_TYPES': ('Bearer',),
+  'BLACKLIST_AFTER_ROTATION': True,
 }
 
 

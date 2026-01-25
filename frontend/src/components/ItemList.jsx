@@ -6,18 +6,25 @@ const ItemList = () => {
   const [name, setName] = useState("")
 
   useEffect(() => {
-    try {
-      const res = api.get('items/')
-      setItems(res.data)
-    } catch (error) {
-      console.log(error)
-    }
-  },[])
+    const fetchItems = async () => {
+      try {
+        const res = await api.get('/user/items/');
+        setItems(res.data);
+      } catch (error) {
+        console.log(error.response?.data || error.message);
+      }
+    };
+    fetchItems();
+  }, []);
 
-  const addItem = async() => {
-    const res = await api.post('items/', {name})
-    setItems([...items, res.data])
-    setName("")
+  const addItem = async () => {
+    try {
+      const res = await api.post('/user/items/', { name })
+      setItems([...items, res.data.data])
+      setName("")
+    } catch (error) {
+      console.log(error.response?.data || error.message)
+    }
   }
 
   return (
@@ -28,7 +35,9 @@ const ItemList = () => {
       />
       <button onClick={addItem}> Add </button>
 
-      {items.map(i => <div key={i.id}> {i.name} </div>)}
+      {items.map(i => (
+        <div key={i.id}>{i.name}</div>
+      ))}
     </>
   )
 }
