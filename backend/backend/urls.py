@@ -6,7 +6,7 @@ import debug_toolbar
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/user/', include('accounts.urls')),
-    # path('api/products/', include('books.urls')),
+    path('api/Products/', include('Products.urls')),
 ]
 
 if settings.DEBUG:
