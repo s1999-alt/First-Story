@@ -10,14 +10,15 @@ function App() {
 
   return (
     <BrowserRouter>
-      <Navbar/>
+      <Navbar />
       <Routes>
-        <Route path='/login' element={<Login/>} />
-        <Route path='/register' element={<Register/>} />
-        <Route path='/' element={<ProtectedRoute>  <BookList/> </ProtectedRoute>} />
+        <Route path='/login' element={<Login />} />
+        <Route path='/register' element={<Register />} />
+        <Route path='/' element={<BookList />} />
       </Routes>
     </BrowserRouter>
   )
 }
 
 export default App
+

@@ -25,13 +25,13 @@ const Navbar = () => {
   return (
     <nav className="sticky top-0 z-50 w-full bg-slate-900 text-white animate-fade-slide">
       <div className="mx-auto flex h-14 max-w-6xl items-center justify-between px-6">
-        
+
         {/* Brand */}
         <Link
           to="/"
           className="text-lg font-semibold bg-linear-to-r from-indigo-400 via-purple-400 to-pink-400 `bg-size-[length:200%_200%]` bg-clip-text text-transparent animate-gradient-shift"
         >
-          CRUD App
+          First Story
         </Link>
 
         {/* Actions */}
