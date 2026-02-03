@@ -15,7 +15,7 @@ export default function Login() {
 
   const submit = async (e) => {
     e.preventDefault();
-    const res = await api.post("/user/login/", form);
+    const res = await api.post("api/user/login/", form);
     dispatch(setToken(res.data.access));
     navigate("/");
   };

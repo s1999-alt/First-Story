@@ -12,7 +12,7 @@ const AuthProvider = ({children}) => {
   useEffect(() => {
     const iniAuth = async () => {
       try {
-        const res = await api.post('/user/refresh/')
+        const res = await api.post('api/user/refresh/')
         dispatch(setToken(res.data.access))
       } catch (err) {
         dispatch(logout())

@@ -18,7 +18,10 @@ class BookListSerializer(serializers.ModelSerializer):
 
   def get_main_image(self, obj):
     img = obj.images.filter(is_main=True).first()
-    return img.image.url if img else None
+    request = self.context.get('request')
+    if img:
+      return request.build_absolute_uri(img.image.url) if request else img.image.url
+    return None
 
 
 class BookDetailSerializer(serializers.ModelSerializer):

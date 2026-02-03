@@ -3,7 +3,7 @@ import store from '../store/store'
 import { logout, setToken } from '../store/authSlice'
 
 const api = axios.create({
-  baseURL: "http://localhost:8000/api",
+  baseURL: "http://localhost:8000/",
   withCredentials: true
 })
 

@@ -3,8 +3,8 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Login from './auth/Login'
 import Register from './auth/Register'
 import ProtectedRoute from './auth/ProtectedRoute'
-import ItemList from './components/ItemList'
 import Navbar from './components/Navbar'
+import BookList from './pages/BookList'
 
 function App() {
 
@@ -14,7 +14,7 @@ function App() {
       <Routes>
         <Route path='/login' element={<Login/>} />
         <Route path='/register' element={<Register/>} />
-        <Route path='/' element={<ProtectedRoute>  <ItemList/> </ProtectedRoute>} />
+        <Route path='/' element={<ProtectedRoute>  <BookList/> </ProtectedRoute>} />
       </Routes>
     </BrowserRouter>
   )

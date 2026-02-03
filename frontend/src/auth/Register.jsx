@@ -27,7 +27,7 @@ export default function Register() {
     }
 
     try {
-      await api.post("/user/register/", form);
+      await api.post("api/user/register/", form);
       alert("Registered successfully");
     } catch {
       setError("Registration failed");

@@ -13,7 +13,7 @@ const Navbar = () => {
 
   const onLogout = async () => {
     try {
-      await api.post("/user/logout/");
+      await api.post("api/user/logout/");
     } catch (err) {
       console.error("Logout failed", err);
     } finally {

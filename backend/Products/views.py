@@ -20,7 +20,7 @@ class BookListView(APIView):
     if category:
       queryset = queryset.filter(category__slug=category)
 
-    serializer = BookListSerializer(queryset, many=True)
+    serializer = BookListSerializer(queryset, many=True, context={'request': request})
     return Response(serializer.data)
 
 
@@ -29,5 +29,5 @@ class BookDetailView(APIView):
 
     def get(self, request, slug):
       book = get_object_or_404(Book, slug=slug, is_active=True)
-      serializer = BookDetailSerializer(book)
+      serializer = BookDetailSerializer(book, context={'request': request})
       return Response(serializer.data)
