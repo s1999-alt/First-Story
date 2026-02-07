@@ -2,11 +2,11 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 
-const BookCard = ({book}) => {
+const BookCard = ({ book }) => {
   return (
     <Link
-     to={`/books/{book.slug}`}
-     className="border rounded-lg overflow-hidden hover:shadow-lg transition"
+      to={`/books/${book.slug}`}
+      className="border rounded-lg overflow-hidden hover:shadow-lg transition"
     >
       <img
         src={book.main_image || "/placeholder.png"}
