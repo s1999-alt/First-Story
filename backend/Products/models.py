@@ -5,6 +5,7 @@ class Category(models.Model):
   name = models.CharField(max_length=100, unique=True)
   slug = models.SlugField(unique=True)
   is_active = models.BooleanField(default=True)
+  image = models.ImageField(upload_to="category_images/")
 
   def __str__(self):
     return self.name

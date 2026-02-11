@@ -42,7 +42,6 @@ const Navbar = () => {
     { name: "Home", path: "/" },
     { name: "Books", path: "/books" },
     { name: "About", path: "#" }, // Placeholder for now
-    { name: "Contact", path: "#" }, // Placeholder for now
   ];
 
   return (
